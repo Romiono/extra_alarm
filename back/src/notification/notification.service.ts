@@ -13,10 +13,8 @@ export class NotificationService {
             port: 587,
             secure: false, // Важно!
             auth: {
-                // user: process.env.SMTP_EMAIL,
-                // pass: process.env.SMTP_PASSWORD,
-                user: 'sofinagulan.0907@gmail.com',
-                pass: 'wwit smyi gkxr eopf',
+                user: process.env.SMTP_EMAIL,
+                pass: process.env.SMTP_PASSWORD,
             },
         });
     }
