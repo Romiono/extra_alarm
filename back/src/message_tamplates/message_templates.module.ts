@@ -8,8 +8,8 @@ import { JwtStrategy } from '../auth/jwt.strategy';
 import { User } from '../users/user.model';
 
 @Module({
-    imports: [SequelizeModule.forFeature([MessageTemplate, User]), JwtModule],
-    controllers: [MessageTemplateController],
-    providers: [MessageTemplateService, JwtStrategy],
+  imports: [SequelizeModule.forFeature([MessageTemplate, User]), JwtModule],
+  controllers: [MessageTemplateController],
+  providers: [MessageTemplateService, JwtStrategy],
 })
 export class MessageTemplateModule {}

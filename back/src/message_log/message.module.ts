@@ -8,8 +8,11 @@ import { MessageController } from './message.controller';
 import { NotificationModule } from '../notification/notification.module';
 
 @Module({
-    imports: [SequelizeModule.forFeature([MessageTemplate, Contact, MessageLog]), NotificationModule],
-    providers: [MessageService],
-    controllers: [MessageController],
+  imports: [
+    SequelizeModule.forFeature([MessageTemplate, Contact, MessageLog]),
+    NotificationModule,
+  ],
+  providers: [MessageService],
+  controllers: [MessageController],
 })
 export class MessageModule {}

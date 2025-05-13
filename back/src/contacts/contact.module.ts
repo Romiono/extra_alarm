@@ -6,8 +6,8 @@ import { ContactService } from './contact.sevice';
 import { ContactController } from './contact.controller';
 
 @Module({
-    imports: [SequelizeModule.forFeature([Contact, MessageTemplate])],
-    controllers: [ContactController],
-    providers: [ContactService],
+  imports: [SequelizeModule.forFeature([Contact, MessageTemplate])],
+  controllers: [ContactController],
+  providers: [ContactService],
 })
 export class ContactModule {}

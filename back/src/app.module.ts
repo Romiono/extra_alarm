@@ -16,7 +16,7 @@ import { MessageTemplate } from './message_tamplates/message_templates.model';
 import { Contact } from './contacts/contact.model';
 import { MessageLog } from './message_log/message-log.model';
 
-const port = process.env.DB_PORT || '5432'
+const port = process.env.DB_PORT || '5432';
 
 @Module({
   imports: [
@@ -45,4 +45,3 @@ const port = process.env.DB_PORT || '5432'
   ],
 })
 export class AppModule {}
-

@@ -9,13 +9,13 @@ import { RefreshStrategy } from './refresh.strategy';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
-    imports: [
-        PassportModule,
-        UsersModule,
-        JwtModule.register({}), // will use dynamic registration in service
-        ConfigModule,
-    ],
-    providers: [AuthService, JwtStrategy, RefreshStrategy],
-    controllers: [AuthController],
+  imports: [
+    PassportModule,
+    UsersModule,
+    JwtModule.register({}), // will use dynamic registration in service
+    ConfigModule,
+  ],
+  providers: [AuthService, JwtStrategy, RefreshStrategy],
+  controllers: [AuthController],
 })
 export class AuthModule {}
