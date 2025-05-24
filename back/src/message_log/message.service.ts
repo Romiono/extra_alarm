@@ -29,7 +29,7 @@ export class MessageService {
 
     let message = template.message_body;
     if (template.include_location) {
-      // Заглушка геолокации (можно получать с фронта)
+      // Заглушка геолокации
       const fakeLocation = 'https://maps.google.com/?q=55.751244,37.618423';
       message += `\n[Геолокация: ${fakeLocation}]`;
     }
