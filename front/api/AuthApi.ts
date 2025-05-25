@@ -2,7 +2,6 @@ import api from './index';
 import { LoginDto, RegisterDto, TokenResponse } from '@/shared/types/api';
 
 export class AuthApi {
-    private static accessToken: TokenResponse;
     static async register(dto: RegisterDto): Promise<TokenResponse> {
         const res = await api.post<TokenResponse>('/auth/register', dto);
         return res.data;

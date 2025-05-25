@@ -17,6 +17,7 @@ export class MessageService {
   async sendMessage(
     templateId: string,
     userId: string,
+    body: { latitude?: number; longitude?: number },
   ): Promise<{ success: boolean }> {
     const template = await this.templateModel.findOne({
       where: { id: templateId, user_id: userId },
@@ -28,10 +29,10 @@ export class MessageService {
     });
 
     let message = template.message_body;
-    if (template.include_location) {
-      // Заглушка геолокации
-      const fakeLocation = 'https://maps.google.com/?q=55.751244,37.618423';
-      message += `\n[Геолокация: ${fakeLocation}]`;
+
+    if (template.include_location && body.latitude && body.longitude) {
+      const link = `https://maps.google.com/?q=${body.latitude},${body.longitude}`;
+      message += `\n[Геолокация: ${link}]`;
     }
 
     for (const contact of contacts) {
@@ -45,14 +46,6 @@ export class MessageService {
         await this.notificationService.sendSMS(contact.value, message);
       }
     }
-
-    await this.logModel.create({
-      user_id: userId,
-      template_id: template.id,
-      full_message: message,
-      recipients: contacts.map((c) => ({ type: c.type, value: c.value })),
-      sent_at: new Date(),
-    });
 
     return { success: true };
   }

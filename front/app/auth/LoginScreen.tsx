@@ -32,7 +32,8 @@ export default function LoginScreen() {
                 setError('Неверный ответ от сервера');
             }
         } catch (err: any) {
-            setError(err.response?.data?.message || 'Ошибка сети');
+            const msg = err?.response?.data?.message || 'Ошибка сети';
+            setError(msg);
         }
     };
 
